@@ -46,20 +46,30 @@ def minInd(m: list):
 def main():
     t = ii()
     for _ in range(t):
-        n = ii()
-        m = ili()
-        ans = []
-        st = 0
-        en = n - 1
-        while st < en:
-            ans.append(m[st])
-            ans.append(m[en])
-            st += 1
-            en -= 1
-        if n % 2 == 1:
-            ans.append(m[n // 2])
-
-        print(*ans)
+        n, k = ili(2)
+        m = ili(n)
+        sum_m = 0
+        con_even = 0
+        con_odd = 0
+        for i in m:
+            if i % 2 == 0:
+                con_even += 1
+            else:
+                con_odd += 1
+            sum_m += i
+        for i in range(k):
+            p, q = ili(2)
+            if p == 0:
+                sum_m += con_even * q
+                if q % 2 != 0:
+                    con_odd += con_even
+                    con_even = 0
+            else:
+                sum_m += con_odd * q
+                if q % 2 == 1:
+                    con_even += con_odd
+                    con_odd = 0
+            print(sum_m)
 
 
 if __name__ == "__main__":  # 12 4 6

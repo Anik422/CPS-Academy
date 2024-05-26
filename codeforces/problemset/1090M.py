@@ -44,15 +44,19 @@ def minInd(m: list):
 
 
 def main():
-    t = ii()
-    for _ in range(t):
-        l = si()
-        ans = str()
-        s = sorted(set(l))
-        for i in s:
-            if 2 * l.count(2 * i) != l.count(i):
-                ans += i
-        print(ans)
+    n, k = ili(2)
+    m = ili(n)
+    ans = 0
+    con = 0
+    for i in range(n - 1):
+        if m[i] != m[i + 1]:
+            con += 1
+        else:
+            con += 1
+            ans = max(ans, con)
+            con = 0
+    ans = max(ans, con + 1)
+    print(ans)
 
 
 if __name__ == "__main__":  # 12 4 6
