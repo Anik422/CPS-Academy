@@ -46,15 +46,10 @@ def minInd(m: list):
 def main():
     t = ii()
     for _ in range(t):
-        n, k = ili(2)
-        if n < k:
-            print("NO") 
-        elif n == k:
-            print("YES")
-        elif (n - k) % 2 == 0:
-            print("YES")
-        else:
-            print("NO")
+        n = ii()
+        print(format(n, 'b'))
+        
+
        
 
 

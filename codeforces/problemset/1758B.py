@@ -46,16 +46,19 @@ def minInd(m: list):
 def main():
     t = ii()
     for _ in range(t):
-        n, k = ili(2)
-        if n < k:
-            print("NO") 
-        elif n == k:
-            print("YES")
-        elif (n - k) % 2 == 0:
-            print("YES")
+        n = ii()
+        if n % 2 != 0:
+            m = [n] * n
+            print(*m)
         else:
-            print("NO")
-       
+            bi1 = format(n, "b")
+
+            bi2 = "".join(["0" if bi1[i] == "1" else "1" for i in range(len(bi1))])
+            ds2 = int(bi2, 2)
+            m = [n] * n
+            m[-1] = ds2
+            print("XOR = ", ds2 ^ n)
+            print(*m)
 
 
 if __name__ == "__main__":  # 12 4 6

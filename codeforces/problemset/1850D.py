@@ -44,18 +44,25 @@ def minInd(m: list):
 
 
 def main():
-    t = ii()
-    for _ in range(t):
+    for _ in range(ii()):
         n, k = ili(2)
-        if n < k:
-            print("NO") 
-        elif n == k:
-            print("YES")
-        elif (n - k) % 2 == 0:
-            print("YES")
-        else:
-            print("NO")
-       
+        m = ili(n)
+        if n == 1:
+            print(0)
+            continue
+        m.sort()
+        c = 1
+        ans = []
+        for i in range(n - 1):
+            if abs(m[i] - m[i + 1]) <= k:
+                c += 1
+            else:
+                ans.append(c)
+                c = 1
+        
+        ans.append(c)
+
+        print(n - max(ans))
 
 
 if __name__ == "__main__":  # 12 4 6
